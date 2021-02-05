@@ -20,7 +20,7 @@ $data_id = $this->session->userdata('data_id');
                     <h2>Selamat Datang di SIPEMANIS</h2>
                     <p class="lead">Silahkan masukkan laporan dengan klik tombol dibawah ini</p>
                     <div class="mt-4">
-                      <a href="pengaduan/v/t.html" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fa fa-list-alt"></i> Lapor Pengaduan</a>
+                      <a href="pengaduan/v.html" class="btn btn-outline-white btn-lg btn-icon icon-left"><i class="fa fa-list-alt"></i> Lapor Pengaduan</a>
                     </div>
                   </div>
                 </div>

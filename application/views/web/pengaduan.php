@@ -1,30 +1,40 @@
-<!-- BEGIN: PAGE CONTAINER -->
-<div class="c-layout-page">
-  <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-2 -->
-	<!-- <div class="c-layout-breadcrumbs-1 c-subtitle c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both">
-		<div class="container">
-			<div class="c-page-title c-pull-left">
-				<h3 class="c-font-uppercase c-font-sbold">Halaman Pengaduan</h3>
-			</div>
-		</div>
-	</div> -->
+<link href="assets/page/DataTables/datatables.min2.css" rel="stylesheet">
+<script src="assets/page/DataTables/datatables.min.js"> </script>
 
-  <div class="c-content-box c-bg-grey-1">
-		<div class="container">
-              <br>
-              <h1 align="center"><b>~ DAFTAR PENGADUAN ~</b></h1>
-              <hr>
-              <style>
-                #bg-white{color:#fff;}
-              </style>
-              <div class="table-responsive">
-								<table id="myTable" class="table table-bordered table-striped">
+
+<style>
+th{ color: #2863a6;}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: #007bff;
+      color: white; /*change the hover text color*/
+      border-color: #007bff;
+    }
+
+
+ </style>
+<main id="main">
+
+    <!-- ======= App Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Daftar Pengaduan</h2>
+        </div>
+
+        <div class="row no-gutters">
+        <div class="table-responsive">
+        <table id="myTable" class="table table-bordered table-striped">
 									<thead>
-										<tr style="background:gray;">
-											<th id="bg-white" width="1">No.</th>
-											<th id="bg-white">PENGADUAN</th>
-											<th id="bg-white" width="210">TANGGAL LAPORAN</th>
-											<th id="bg-white" width="150">STATUS</th>
+										<tr>
+											<th id="bg-white" >No.</th>
+                                            <th id="bg-white">NIP/NIK/NID/NIM</th>
+											<th id="bg-white">Kategori</th>
+                                            <th id="bg-white">Sub Kategori</th>
+											<th id="bg-white" >Tanggal Laporan</th>
+											<th id="bg-white" >Status</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -33,17 +43,54 @@
                     foreach ($query->result() as $key => $value): ?>
                       <tr>
                         <td><b><?php echo $no++; ?>.</b></td>
-                        <td><?php echo $value->isi_pengaduan; ?></td>
+                        <td><?php echo $this->Mcrud->d_pelapor($value->user,'user_login'); ?></td>
+                        <td><?php echo $this->Mcrud->d_pelapor($value->id_kategori,'kategori'); ?></td>
+                        <td><?php echo $this->Mcrud->d_pelapor($value->id_sub_kategori,'sub_kategori'); ?></td>
                         <td><?php echo $this->Mcrud->waktu($value->tgl_pengaduan,'full'); ?></td>
-                        <td align="center"><?php echo $this->Mcrud->cek_status($value->status); ?></td>
+                        <td align="center"><?php if($value->status == 'proses') {?>
+                        <span class="badge badge-warning"><?php echo $this->Mcrud->cek_status($value->status); ?></span>
+                      <?php } elseif ($value->status == 'konfirmasi'){ ?>
+                        <span class="badge badge-info"><?php echo $this->Mcrud->cek_status($value->status); ?></span>
+                      <?php } elseif ($value->status == 'selesai'){ ?>
+                        <span class="badge badge-success"><?php echo $this->Mcrud->cek_status($value->status); ?></span>
+                      <?php } elseif ($value->status == 'konfirmasi'){ ?>
+                        <span class="badge badge-success"><?php echo $this->Mcrud->cek_status($value->status); ?></span>
+                      <?php } elseif ($value->status == 'ditolak'){ ?>
+                        <span class="badge badge-danger"><?php echo $this->Mcrud->cek_status($value->status); ?></span>
+                        <?php } ?></td>
                       </tr>
                     <?php endforeach; ?>
 									</tbody>
 								</table>
-              </div>
-			</div>
-      <br>
-  </div>
-
 </div>
-<!-- END: PAGE CONTAINER -->
+        </div>
+
+      </div>
+    </section><!-- End App Features Section -->
+
+    <!-- ======= Details Section ======= -->
+  
+    <!-- ======= Gallery Section ======= -->
+   
+
+    <!-- ======= Testimonials Section ======= -->
+   
+
+    <!-- ======= Pricing Section ======= -->
+    
+   
+
+  </main>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+  <script>
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        responsive: true
+        
+    } );
+ 
+    new $.fn.dataTable.FixedHeader( table );
+    
+} );
+  </script>

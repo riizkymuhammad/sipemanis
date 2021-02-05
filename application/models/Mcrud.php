@@ -260,6 +260,8 @@ class Mcrud extends CI_Model {
 			$data = $this->db->get_where('tbl_kategori', array('id_kategori'=>$id))->row()->nama_kategori;
 		}elseif ($aksi=='sub_kategori') {
 			$data = $this->db->get_where('tbl_sub_kategori', array('id_sub_kategori'=>$id))->row()->nama_sub_kategori;
+		}elseif ($aksi=='petugas') {
+			$data = $this->db->get_where('tbl_petugas', array('id_user'=>$id))->row()->nama;
 		}elseif ($aksi=='user_login') {
 			$data = $this->tbl_bm->get_where('users', array('id'=>$id))->row()->user_login;
 		}elseif ($aksi=='level_name') {
@@ -279,11 +281,14 @@ class Mcrud extends CI_Model {
 	{
 		if ($data=='proses') {
 			$v_data = '<label class="label label-danger">BELUM DI KONFIRMASI</label>';
+		}elseif ($data=='ditolak') {
+			$v_data = '<label class="label label-primary">LAPORAN DI TOLAK</label>';
 		}elseif ($data=='konfirmasi') {
 			$v_data = '<label class="label label-primary">SEDANG DITANGANI</label>';
 		}elseif ($data=='selesai') {
 			$v_data = '<label class="label label-success">SELESAI</label>';
-		}else {
+		}
+		else {
 			$v_data = '';
 		}
 		return $v_data;
@@ -417,4 +422,5 @@ public function get_data_pengaduan($id)
 		$this->tbl_bm->where('user_login ',$username);
 		return $this->tbl_bm->get();
 	}
+
 }

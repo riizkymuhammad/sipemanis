@@ -1,3 +1,5 @@
+
+
 <?php
 $level 	= $this->session->userdata('status');
 $link3  = strtolower($this->uri->segment(3));
@@ -61,6 +63,15 @@ $link3  = strtolower($this->uri->segment(3));
 					<div class="modal-body">
 						<input type="hidden" name="id_pengaduan" id="id_pengaduan" value="">
 						<?php if ($level=='superadmin'){ ?>
+							<div class="form-group">
+							<b>Konfirmasi Laporan</b> <br>
+							<select class="form-control default-select2" name="status" id="status_konfirm" required style="width:100%">
+								<option value="">- Pilih -</option>
+									<option value="konfirmasi">Konfirmasi</option>
+									<option value="ditolak">Di Tolak</option>
+							</select>
+							</div>
+							<div class="form-group">
 							<b>Pilih Petugas</b> <br>
 							<select class="form-control default-select2" name="id_petugas" required style="width:100%">
 								<option value="">- Pilih -</option>
@@ -71,20 +82,27 @@ $link3  = strtolower($this->uri->segment(3));
 									<option value="<?php echo $value->id_user; ?>"><?php echo ucwords($value->nama); ?></option>
 								<?php endforeach; ?>
 							</select>
+							</div>
+
+							<div class="form-group">
+                      			<b>Laporan Petugas</b>
+                      			<textarea class="form-control" name="pesan_petugas"></textarea>
+                    		</div>
+							
 							
 						<?php }else{ ?>
 							<div class="pesan_ajax"></div>
-							<div class="form-group" id="f_ajax1">
-								<label class="col-lg-4">ATTACHMENT</label>
-								<div class="col-lg-8">
-									<textarea name="pesan_petugas" class="form-control" placeholder="Pesan" rows="4" cols="80" required></textarea>
+							<div class="form-group sm-6" id="f_ajax1">
+								<label class="col-lg-6">ATTACHMENT</label>
+								<div class="col-lg-12">
+									<textarea name="pesan_petugas" class="form-control" placeholder="Pesan" rows="10" required></textarea>
 									<input type="file" name="file" class="form-control">
 								</div>
 							</div>
 							<div class="form-group" id="f_ajax2">
-								<div class="col-md-4"><b>STATUS PENGADUAN</b></div>
-								<div class="col-md-8">
-									<select class="form-control default-select2" name="status" required style="width:100%">
+								<div class="col-md-6"><b>STATUS PENGADUAN</b></div>
+								<div class="col-md-12">
+									<select class="form-control default-select2" name="status" required>
 										<option value="">- Semua -</option>
 										<option value="proses">Belum Terkonfirmasi</option>
 										<option value="konfirmasi">Sedang Ditangani</option>
@@ -104,3 +122,4 @@ $link3  = strtolower($this->uri->segment(3));
 			</div>
 		</div>
 <?php endif; ?>
+

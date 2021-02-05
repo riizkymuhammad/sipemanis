@@ -75,41 +75,13 @@ class Pengaduan extends CI_Controller {
 			if ($level=='user') {
 				$test =$this->db->where('user',$data_id );
 			}
-			if ($aksi=='proses' or $aksi=='konfirmasi' or $aksi=='selesai') {
+			if ($aksi=='proses' or $aksi=='konfirmasi' or $aksi=='selesai' or $aksi=='ditolak') {
 				$this->db->where('status',$aksi);
 			}
-		$jumlah_data = $this->db->get("tbl_pengaduan")->num_rows();
-		$this->load->library('pagination');
-		$config['base_url'] = base_url('pengaduan/v');
-		$config['total_rows'] = $jumlah_data;
-		$config['per_page'] = 10;
 
-		$config['next_link'] = 'Selanjutnya';
-		$config['prev_link'] = 'Sebelumnya';
-		$config['first_link'] = 'Awal';
-		$config['last_link'] = 'Akhir';
-		$config['full_tag_open'] = '<ul class="pagination mb-0">';
-		$config['full_tag_close'] = '</ul>';
-		$config['num_tag_open'] = '<li class="page-item">';
-		$config['num_tag_close'] = '</li>';
-		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
-		$config['cur_tag_close'] = '</a></li>';
-		$config['prev_tag_open'] = '<li class="page-item">';
-		$config['prev_tag_close'] = '</li>';
-		$config['next_tag_open'] = '<li class="page-item">';
-		$config['next_tag_close'] = '</li>';
-		$config['last_tag_open'] = '<li class="page-item">';
-		$config['last_tag_open'] = '<li class="page-item">';
-		$config['first_tag_open'] = '<li class="page-item">';
-		$config['first_tag_open'] = '<li class="page-item">';
-		$config['attributes'] = array('class' => 'page-link');
-		
-
-		$data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-
-		$this->pagination->initialize($config);
 			$this->db->order_by('id_pengaduan', 'DESC');
-			$data['query'] = $this->db->get("tbl_pengaduan",$config['per_page'],);
+			$data['query'] = $this->db->get("tbl_pengaduan");
+
 
 			$cek_notif = $this->db->get_where("tbl_notif", array('penerima'=>"$id_user"));
 			foreach ($cek_notif->result() as $key => $value) {
@@ -130,6 +102,15 @@ class Pengaduan extends CI_Controller {
 				$p = "detail";
 				$data['judul_web'] 	  = "Detail Pengaduan";
 				$data['query'] = $this->db->get_where("tbl_pengaduan", array('id_pengaduan' => "$id"))->row();
+				if ($data['query']->id_pengaduan=='') {
+					redirect('404');
+				}
+			}
+			elseif ($aksi == 'l') {
+				$p = "laporan";
+				$data['judul_web'] 	  = "Detail Pengaduan";
+				$data['query'] = $this->db->get_where("tbl_pengaduan", array('id_pengaduan' => "$id"))->row();
+
 				if ($data['query']->id_pengaduan=='') {
 					redirect('404');
 				}
@@ -249,9 +230,12 @@ class Pengaduan extends CI_Controller {
 					$pesan = '';
 					if ($level=='superadmin') {
 						$id_petugas 	= htmlentities(strip_tags($this->input->post('id_petugas')));
+						$status 	= htmlentities(strip_tags($this->input->post('status')));
+						$pesan_petugas = htmlentities(strip_tags($this->input->post('pesan_petugas')));
 						$data = array(
 							'petugas'					=> $id_petugas,
-							'status'					=> 'konfirmasi',
+							'status'					=> $status,
+							'pesan_petugas' => $pesan_petugas,
 							'tgl_konfirmasi'  => $tgl
 						);
 						$pesan = 'Berhasil dikirim ke petugas';

@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
           <div>
-            <h1>Selamat Datang di Sistem Pengaduan Laporan UPT.PTIK UMRAH</h1>
+            <h1>Selamat Datang di Sistem Informasi Pelayanan Masalah Teknis UPT.PTIK UMRAH</h1>
             <h2>Silahkan Login terlebih dahulu untuk mengisi laporan pengaduan di Sipemanis</h2>
           </div>
         </div>
@@ -24,7 +24,7 @@
 
         <div class="section-title">
           <h2>Cara Melapor</h2>
-          <p>Alur pelaporan dipemanis</p>
+          <p>Alur pelaporan Sistem Informasi Pelayanan Teknis Masalah UMRAH</p>
         </div>
 
         <div class="row no-gutters">

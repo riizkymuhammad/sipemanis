@@ -11,7 +11,6 @@
 
   <!-- General JS Scripts -->
   <script src="assets/assets/js/jquery-3.3.1.min.js"></script>
-  <script src="assets/assets/js/popper.min.js"></script>
   <script src="assets/assets/js/bootstrap.min.js"></script>
   <script src="assets/assets/js/nicescroll.min.js"></script>
   <script src="assets/assets/js/moment.min.js"></script>
@@ -19,17 +18,16 @@
   <script src="assets/assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
-  <script src="assets/assets/js/datatables.js"></script>
-  <script src="assets/assets/js/datatable2.min.js"></script>
-  <script src="assets/assets/js/datatable3.min.js"></script>
+  <script src="assets/assets/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
+  <script src="assets/assets/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/assets/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
 
   <!-- Template JS File -->
   <script src="assets/assets/js/scripts.js"></script>
   <script src="assets/assets/js/custom.js"></script>
 
-
   <!-- Page Specific JS File -->
-  <script src="assets/assets/js/page/modules-datatables.js"></script>
+  <script src="assets/assets/js/page/modules-datatables3.js"></script>
 
   <script>
     notif();
@@ -52,6 +50,9 @@ function notif()
 }
 setInterval(notif, 2000); //2 detik
 </script>
+</body>
+</html>
+
 
 </body>
 </html>

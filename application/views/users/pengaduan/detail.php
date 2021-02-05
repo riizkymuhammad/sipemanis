@@ -61,7 +61,7 @@ $link4 = strtolower($this->uri->segment(4));
                       <td><?php echo $this->Mcrud->d_pelapor($query->id_sub_kategori,'sub_kategori'); ?></td>
                     </tr>
                     <tr>
-                      <th valign="top">Pengaduan Waktu</th>
+                      <th valign="top">Waktu Pengaduan</th>
                       <th valign="top">:</th>
                       <td><?php echo $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_pengaduan)),'full'); ?></td>
                     </tr>
@@ -92,28 +92,10 @@ $link4 = strtolower($this->uri->segment(4));
                        ?></td>
                       
                     </tr>
-
-                    <tr>
-                      <th valign="top">Permasalahan</th>
-                      <th valign="top">:</th>
-                      <td><?php echo $query->isi_pengaduan; ?></td>
-                    </tr>
                     <tr>
                       <th valign="top">Keterangan</th>
                       <th valign="top">:</th>
                       <td><?php echo $query->ket_pengaduan; ?></td>
-                    </tr>
-                    <tr>
-                      <th valign="top" width="160">Attachment</th>
-                      <th valign="top">:</th>
-                      <td><?php echo $query->pesan_petugas; ?></td>
-                    </tr>
-                    <tr>
-                      <th valign="top">File Attachment</th>
-                      <th valign="top">:</th>
-                      <td>
-                        <a href="<?php echo $query->file_petugas; ?>" target="_blank"><?php echo $query->file_petugas; ?></a>
-                      </td>
                     </tr>
                     <tr>
                       <th valign="top">File Pendukung</th>
@@ -125,12 +107,27 @@ $link4 = strtolower($this->uri->segment(4));
                     <tr>
                       <th valign="top">Status</th>
                       <th valign="top">:</th>
-                      <td><?php echo $this->Mcrud->cek_status($query->status); ?></td>
+                      <td>
+                      <?php if($query->status == 'proses') {?>
+                        <span class="badge badge-warning"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'konfirmasi'){ ?>
+                        <span class="badge badge-info"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'selesai'){ ?>
+                        <span class="badge badge-success"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'konfirmasi'){ ?>
+                        <span class="badge badge-success"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'ditolak'){ ?>
+                        <span class="badge badge-danger"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                        <?php } ?>
+                        </td>
                     </tr>
                                 </tbody>
                       </table>
                     </div>
                     </div>
+                    <div class="card-footer text-right">
+                    <a href="pengaduan/v.html" class="btn btn-primary"><i><</i> Kembali</a>
+                  </div>
                   </div>
                 </div>
               </div>

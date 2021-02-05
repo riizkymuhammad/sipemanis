@@ -1,6 +1,7 @@
 
 <?php
 $userdata = $this->session->userdata('username');
+$userid = $this->session->userdata('data_id');
 //$this->load->model('mcrud');
 $level = $this->session->userdata('status');
 $foto = "img/user/user-default.jpg";
@@ -25,6 +26,12 @@ if ($level=='user') {
 $menu 		= strtolower($this->uri->segment(1));
 $sub_menu = strtolower($this->uri->segment(2));
 $sub_menu3 = strtolower($this->uri->segment(3));
+$nama = $this->session->userdata('name'); 
+$this->db->order_by('id_notif','DESC');
+$this->db->where('hapus_notif',null);
+
+$notif = $this->db->get_where('tbl_notif', array('penerima'=>$userid));
+
 ?>
 
 
@@ -46,17 +53,14 @@ $sub_menu3 = strtolower($this->uri->segment(3));
   <link rel="stylesheet" href="assets/assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-  <!-- CSS Libraries -->
-  <link rel="stylesheet" href="assets/assets/css/select.min.css">
-  <link rel="stylesheet" href="assets/assets/css/dataTable.min.css">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/assets/css/style7.css">
+  <link rel="stylesheet" href="assets/assets/css/style9.css">
   <link rel="stylesheet" href="assets/assets/css/components2.css">
 </head>
 
 <body>
   <div id="app">
-    <div class="main-wrapper">
+    <div class="main-wrapper">git
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
@@ -71,29 +75,32 @@ $sub_menu3 = strtolower($this->uri->segment(3));
             <div class="dropdown-menu dropdown-list dropdown-menu-right">
               <div class="dropdown-header">Notifikasi
                 <div class="float-right">
-                  <a href="#">Tandai Telah dibaca</a>
+                  <a href="web/notif/h_all">Tandai Telah dibaca</a>
                 </div>
               </div>
               <div class="dropdown-list-content dropdown-list-icons">
-                
-                <a href="#" class="dropdown-item">
-                  <div class="dropdown-item-icon bg-danger text-white">
-                    <i class="fas fa-exclamation-triangle"></i>
-                  </div>
+              <?php
+                foreach ($notif->result() as $notif):
+							?>
+                <a href="pengaduan/v.html" class="dropdown-item">
+                <figure class="avatar mr-2 avatar-sm bg-success text-white" data-initial="<?php echo $this->Mcrud->d_pelapor($notif->pengirim,'nama_pelapor')[0] ?>"></figure>
                   <div class="dropdown-item-desc">
-                    Low disk space. Let's clean it!
-                    <div class="time">17 Hours Ago</div>
+                  
+                  <?php echo $this->Mcrud->d_pelapor($notif->pengirim,'nama_pelapor'); ?>
+                    <div class="time"><?php echo $notif->pesan ?></div>
                   </div>
                 </a>
+                <?php endforeach; ?>
               </div>
+              
               <div class="dropdown-footer text-center">
-                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+                <a href="web/notif.html">Lihat Semua <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="assets/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, <?php $nama = $this->session->userdata('name'); echo ucwords($nama); ?></div></a>
+          <figure class="avatar mr-2 avatar-sm bg-primary text-white" data-initial="<?php echo $nama[0] ?>"></figure>
+            <div class="d-sm-none d-lg-inline-block"><?php echo ucwords($nama); ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title"><?php echo strtolower($userdata); ?></div>
               <div class="dropdown-divider"></div>
@@ -119,9 +126,6 @@ $sub_menu3 = strtolower($this->uri->segment(3));
               <?php if ($level=='superadmin'): ?>
               <li><a class="<?php if($menu=='petugas'){echo "active";}else{echo "nav-link";} ?>" href="petugas/v.html"><i class="fas fa-users"></i> <span>Petugas</span></a></li>
               <?php endif; ?>
-              <?php if ($level!='user'): ?>
-              <li><a class="<?php if($menu=='users' AND $sub_menu=='v'){echo "active";}else{echo "nav-link";} ?>" href="users/v.html"><i class="fas fa-users"></i> <span>User</span></a></li>
-              <?php endif; ?>
               <li><a class="<?php if($menu=='pengaduan' AND $sub_menu=='v'){echo "active";} else{echo "nav-link";} ?>" href="pengaduan/v.html"><i class="fas fa-list-alt"></i> <span>Pengaduan</span></a></li>
               <?php if ($level=='superadmin'): ?>
               <li class="nav-item dropdown">
@@ -138,8 +142,8 @@ $sub_menu3 = strtolower($this->uri->segment(3));
             </ul>
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
-                <i class="fas fa-rocket"></i> Documentation
+              <a href="assets/Buku_Panduan_Penggunaan_bagi_USER_Aplikasi_SIPEMANIS.pdf" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-book"></i> Panduan Laporan
               </a>
             </div>
         </aside>

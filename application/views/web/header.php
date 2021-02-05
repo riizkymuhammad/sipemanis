@@ -1,4 +1,4 @@
-
+<?php $userdata = $this->session->userdata('data_id'); ?>
   <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +39,7 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top  header-transparent ">
+  <header id="header" class="fixed-top header-scrolled">
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
@@ -54,7 +54,11 @@
           <li class="active"><a href="index.html">Beranda</a></li>
           <li><a href="pengaduan">Pengaduan</a></li>
           <li><a href="assets/Buku_Panduan_Penggunaan_bagi_USER_Aplikasi_SIPEMANIS.pdf">Panduan</a></li>
+          <?php if ($userdata = $userdata ){ ?>
+          <li class="get-started"><a href="web/login.html"><?php echo $this->Mcrud->d_pelapor($userdata,'nama_pelapor'); ?></a></li>
+          <?php }else{ ?>
           <li class="get-started"><a href="web/login.html">Login</a></li>
+          <?php } ?>
         </ul>
       </nav><!-- .nav-menu -->
 
