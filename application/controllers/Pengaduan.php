@@ -232,10 +232,12 @@ class Pengaduan extends CI_Controller {
 						$id_petugas 	= htmlentities(strip_tags($this->input->post('id_petugas')));
 						$status 	= htmlentities(strip_tags($this->input->post('status')));
 						$pesan_petugas = htmlentities(strip_tags($this->input->post('pesan_petugas')));
+						$file = htmlentities(strip_tags($this->input->post('file')));
 						$data = array(
 							'petugas'					=> $id_petugas,
 							'status'					=> $status,
 							'pesan_petugas' => $pesan_petugas,
+							'bukti' => $file,
 							'tgl_konfirmasi'  => $tgl
 						);
 						$pesan = 'Berhasil dikirim ke petugas';

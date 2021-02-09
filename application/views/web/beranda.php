@@ -2,10 +2,11 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch pt-5 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
+        <div class="col-lg-6 d-lg-flex flex-lg-column justify-content-center align-items-stretch py-0 pt-lg-0 order-2 order-lg-1" data-aos="fade-up">
           <div>
             <h1>Selamat Datang di Sistem Informasi Pelayanan Masalah Teknis UPT.PTIK UMRAH</h1>
             <h2>Silahkan Login terlebih dahulu untuk mengisi laporan pengaduan di Sipemanis</h2>
+            <a href="web/login.html" class="download-btn d-lg-none"><i class="bx bxs-pencil"></i> Lapor Pengaduan</a>
           </div>
         </div>
         <div class="col-lg-6 d-lg-flex flex-lg-column align-items-stretch order-1 order-lg-2 hero-img" data-aos="fade-up">

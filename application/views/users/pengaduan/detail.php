@@ -8,6 +8,7 @@ $link1 = strtolower($this->uri->segment(1));
 $link2 = strtolower($this->uri->segment(2));
 $link3 = strtolower($this->uri->segment(3));
 $link4 = strtolower($this->uri->segment(4));
+$level 	= $this->session->userdata('status');
 ?>
 
 <!-- begin #content -->
@@ -125,8 +126,17 @@ $link4 = strtolower($this->uri->segment(4));
                       </table>
                     </div>
                     </div>
-                    <div class="card-footer text-right">
-                    <a href="pengaduan/v.html" class="btn btn-primary"><i><</i> Kembali</a>
+                  <div class="card-footer text-right">
+                  <a href="pengaduan/v.html" class="btn btn-primary"><i><</i> Kembali</a>
+                  <?php if ($level=='superadmin'){ ?>
+                                          <?php if ($query->status=='proses'){ ?>
+																						 <a href="javascript:;" class="btn btn-success" title="Konfirmasi" data-toggle="modal" onclick="modal_show(<?php echo $query->id_pengaduan; ?>);"><i class="fa fa-file"></i> Konfirmasi</a>
+                                          <?php } ?>
+                                          <?php }elseif ($level=='petugas'){ ?>
+																					<?php //if ($baris->status=='konfirmasi'){ ?>
+																						 <a class="btn btn-icon icon-left btn-success" title="Edit" data-toggle="modal" onclick="modal_show(<?php echo $query->id_pengaduan; ?>);"><i class="far fa-edit"></i> Konfirmasi Lapooran</a>
+																					<?php } ?>
+
                   </div>
                   </div>
                 </div>

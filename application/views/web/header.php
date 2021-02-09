@@ -26,7 +26,7 @@
   <link href="assets/page/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/page/css/style3.css" rel="stylesheet">
+  <link href="assets/page/css/style5.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Appland - v2.3.0
@@ -44,7 +44,7 @@
 
       <div class="logo mr-auto">
      
-        <h3 class="text-light"><a href="index.html"> <img src="assets//favicon.png" style="height: 100px;"> Pengaduan <b>Laporan</b></a></h3>
+        <h4 class="text-light"><a href="index.html"> <img src="assets//favicon.png" style="height: 100px;"> Pengaduan <b>Laporan</b></a></h4>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>

@@ -1,13 +1,5 @@
 
 
-<?php
-$link1 = strtolower($this->uri->segment(1));
-$link2 = strtolower($this->uri->segment(2));
-$link3 = strtolower($this->uri->segment(3));
-$link4 = strtolower($this->uri->segment(4));
-?>
-
-
   <link rel="stylesheet" href="assets/assets/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css">
   <link rel="stylesheet" href="assets/assets/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
 <!-- begin #content -->
@@ -99,18 +91,7 @@ $link4 = strtolower($this->uri->segment(4));
                                           <a href="<?php echo strtolower($this->uri->segment(1)); ?>/<?php echo strtolower($this->uri->segment(2)); ?>/l/<?php echo hashids_encrypt($baris->id_pengaduan); ?>" class="btn btn-warning btn-xs" title="Detail"><i class="fa fa-search"></i> Hasil</a>
                                         <?php } ?>     
 																					<a href="<?php echo strtolower($this->uri->segment(1)); ?>/<?php echo strtolower($this->uri->segment(2)); ?>/d/<?php echo hashids_encrypt($baris->id_pengaduan); ?>" class="btn btn-info btn-xs" title="Detail"><i class="fa fa-search"></i> Detail</a>
-																				<?php if ($level=='superadmin'){ ?>
-																					<?php if ($baris->status=='proses'){ ?>
-																						 <a href="javascript:;" class="btn btn-success btn-xs" title="Konfirmasi" data-toggle="modal" onclick="modal_show(<?php echo $baris->id_pengaduan; ?>);"><i class="fa fa-file"></i> Konfirmasi</a>
-																					<?php } ?>
-											
-																				<?php }elseif ($level=='petugas'){ ?>
-																					<?php //if ($baris->status=='konfirmasi'){ ?>
-																						 <a class="btn btn-icon icon-left btn-success" title="Edit" data-toggle="modal" onclick="modal_show(<?php echo $baris->id_pengaduan; ?>);"><i class="far fa-edit"></i> Edit</a>
-																					<?php //}else{ ?>
-																						<!-- <a href="javascript:;" class="btn btn-success btn-xs" title="Edit" disabled><i class="fa fa-check"></i> Edit</a> -->
-																					<?php //} ?>
-																				<?php }else{ ?>
+																				<?php if ($level=='user'){ ?>
 																						<?php if ($baris->status=='proses'){ ?>
 																							<a href="<?php echo strtolower($this->uri->segment(1)); ?>/<?php echo strtolower($this->uri->segment(2)); ?>/h/<?php echo hashids_encrypt($baris->id_pengaduan); ?>" class="btn btn-danger btn-xs" title="Hapus" onclick="return confirm('Anda yakin?');"><i class="fa fa-trash"></i> Hapus</a>
 																						<?php } ?>

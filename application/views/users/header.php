@@ -50,17 +50,17 @@ $notif = $this->db->get_where('tbl_notif', array('penerima'=>$userid));
   <!-- General CSS Files -->
 
   <link rel="stylesheet" href="assets/assets/css/datatables.min.css">
-  <link rel="stylesheet" href="assets/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/assets/css/bootstrap.min2.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/assets/css/style9.css">
+  <link rel="stylesheet" href="assets/assets/css/style.css">
   <link rel="stylesheet" href="assets/assets/css/components2.css">
 </head>
 
 <body>
   <div id="app">
-    <div class="main-wrapper">git
+    <div class="main-wrapper">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">

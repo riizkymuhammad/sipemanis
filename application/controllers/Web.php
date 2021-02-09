@@ -243,6 +243,7 @@ class Web extends CI_Controller {
 						 $data_id  = $cek[0]->ID;
 						 $jumlah = $query->num_rows();
 						 echo $cek['user_login'];
+
 						// echo $jumlah;
 						 if($jumlah == 0) {
 								 $this->session->set_flashdata('msg',

@@ -86,14 +86,17 @@ $link3  = strtolower($this->uri->segment(3));
 
 							<div class="form-group">
                       			<b>Laporan Petugas</b>
-                      			<textarea class="form-control" name="pesan_petugas"></textarea>
+								  <textarea class="form-control" name="pesan_petugas"></textarea>
+							</div>
+								  <div class="form-group">
+								  <input type="file" name="file" class="form-control">
                     		</div>
 							
 							
 						<?php }else{ ?>
 							<div class="pesan_ajax"></div>
 							<div class="form-group sm-6" id="f_ajax1">
-								<label class="col-lg-6">ATTACHMENT</label>
+								<label class="col-lg-6">Hasil Laporan</label>
 								<div class="col-lg-12">
 									<textarea name="pesan_petugas" class="form-control" placeholder="Pesan" rows="10" required></textarea>
 									<input type="file" name="file" class="form-control">
@@ -114,7 +117,7 @@ $link3  = strtolower($this->uri->segment(3));
 						<?php } ?>
 					</div>
 					<div class="modal-footer">
-						<a href="javascript:;" class="btn btn-white" data-dismiss="modal">Tutup</a>
+						<a href="javascript:;" class="btn btn-danger" data-dismiss="modal">Tutup</a>
 						<button type="submit" name="btnkirim" id="f_ajax3" class="btn btn-primary"><i class="fa fa-send"></i> <?php if($level=='superadmin'){echo "Kirim";}else{echo "Simpan";}?></button>
 					</div>
 					</form>
