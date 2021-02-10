@@ -25,7 +25,7 @@
 
         <div class="section-title">
           <h2>Cara Melapor</h2>
-          <p>Alur pelaporan Sistem Informasi Pelayanan Teknis Masalah UMRAH</p>
+          <p>Alur pelaporan Sistem Informasi Pelayanan Teknis Masalah Universitas Maritim Raja Ali Haji</p>
         </div>
 
         <div class="row no-gutters">

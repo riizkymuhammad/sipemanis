@@ -54,6 +54,12 @@
   <!--[if lt IE 9]>
   <script src="assets/web/global/plugins/excanvas.min.js"></script>
 <![endif]-->
+<script src="assets/web/plugins/jquery.min.js" type="text/javascript" ></script>
+<script src="assets/web/plugins/jquery-migrate.min.js" type="text/javascript" ></script>
+<script src="assets/web/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+<script src="assets/web/plugins/jquery.easing.min.js" type="text/javascript" ></script>
+<script src="assets/web/plugins/reveal-animate/wow.js" type="text/javascript" ></script>
+
 
 <script>
   $(document).ready(function() {
@@ -64,10 +70,9 @@
 
 <!-- BEGIN: PAGE SCRIPTS -->
 
+<script type="text/javascript" src="assets/web/dataTables/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
-$(document).ready( function () {
-  $('#myTable').DataTable();
-} );
+
 function hanyaAngka(evt) {
   var charCode = (evt.which) ? evt.which : event.keyCode
    //if (charCode > 31 && (charCode < 48 || charCode > 57))
