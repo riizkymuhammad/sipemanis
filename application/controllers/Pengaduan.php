@@ -191,6 +191,7 @@ class Pengaduan extends CI_Controller {
 										'status'					=> 'proses',
 										'tgl_pengaduan'   => $tgl
 									);
+
 									$this->db->insert('tbl_pengaduan',$data);
 
 									$id_pengaduan = $this->db->insert_id();
@@ -237,7 +238,7 @@ class Pengaduan extends CI_Controller {
 							'petugas'					=> $id_petugas,
 							'status'					=> $status,
 							'pesan_petugas' => $pesan_petugas,
-							'bukti' => $file,
+							'file_petugas' => $file,
 							'tgl_konfirmasi'  => $tgl
 						);
 						$pesan = 'Berhasil dikirim ke petugas';

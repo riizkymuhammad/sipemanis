@@ -1,4 +1,5 @@
-<?php $userdata = $this->session->userdata('data_id'); ?>
+<?php $userdata = $this->session->userdata('data_id');
+$menu 		= strtolower($this->uri->segment(1)); ?>
   <!DOCTYPE html>
 <html lang="en">
 
@@ -51,9 +52,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Beranda</a></li>
-          <li><a href="pengaduan">Pengaduan</a></li>
-          <li><a href="assets/Buku_Panduan_Penggunaan_bagi_USER_Aplikasi_SIPEMANIS.pdf">Panduan</a></li>
+          <li class=<?php if($menu == 'index'){echo 'active';} ?>><a href="index.html">Beranda</a></li>
+          <li class=<?php if($menu == 'pengaduan'){echo 'active';} ?> ><a href="pengaduan">Pengaduan</a></li>
+          <li><a href="https://ict.umrah.ac.id/panduan-layanan">Panduan</a></li>
           <?php if ($userdata = $userdata ){ ?>
           <li class="get-started"><a href="web/login.html"><?php echo $this->Mcrud->d_pelapor($userdata,'nama_pelapor'); ?></a></li>
           <?php }else{ ?>

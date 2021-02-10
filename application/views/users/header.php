@@ -43,7 +43,7 @@ $notif = $this->db->get_where('tbl_notif', array('penerima'=>$userid));
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title><?= $judul_web; ?></title>
-  <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   <base href="<?php echo base_url();?>"/>
 
 
@@ -65,8 +65,7 @@ $notif = $this->db->get_where('tbl_notif', array('penerima'=>$userid));
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+            <li><a  data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
           </ul>
        
         </form>
@@ -114,10 +113,10 @@ $notif = $this->db->get_where('tbl_notif', array('penerima'=>$userid));
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html"><img src="https://sipa2016.umrah.ac.id/assets/logo.png" width="30"> Sipemanis</a>
+            <a href="index.html"><img src="img/logo-sipemanis.png" width="50px"> Sipemanis</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html"><img src="https://sipa2016.umrah.ac.id/assets/logo.png" width="30"></a>
+            <a href="index.html"><img src="img/logo-sipemanis.png" width="50px"></a>
           </div>
           <ul class="sidebar-menu">
               

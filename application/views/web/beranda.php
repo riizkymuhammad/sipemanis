@@ -77,7 +77,7 @@
             <ul>
               <li><i class="bx bx-check"></i> Sambungan Internet Mati</li>
               <li><i class="bx bx-check"></i> Reset Password User Wifi</li>
-              <li><i class="bx bx-check"></i> Sambubungan LAN Bermasalah</li>
+              <li><i class="bx bx-check"></i> Sambungan LAN Bermasalah</li>
             </ul>
           </div>
 
@@ -86,7 +86,7 @@
             <h4><i class="bx bx-window-alt"></i></h4>
             <ul>
               <li><i class="bx bx-check"></i> Reset Password Login Website</li>
-              <li><i class="bx bx-check"></i> Laman Web Tidak Bisa diBuka (Error)</li>
+              <li><i class="bx bx-check"></i> Laman Web Tidak Bisa dibuka (Error)</li>
             </ul>
           </div>
 
