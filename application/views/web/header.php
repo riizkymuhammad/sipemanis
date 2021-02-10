@@ -23,6 +23,8 @@ $menu 		= strtolower($this->uri->segment(1)); ?>
   <link href="assets/page/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="assets/page/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 
+  <link href="assets/page/vendor/aos/aos.css" rel="stylesheet">
+
 
   <!-- Template Main CSS File -->
   <link href="assets/page/css/style5.css" rel="stylesheet">
