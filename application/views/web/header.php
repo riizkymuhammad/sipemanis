@@ -17,7 +17,7 @@ $menu 		= strtolower($this->uri->segment(1)); ?>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <!-- Vendor CSS Files -->
   <link href="assets/page/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/page/vendor/icofont/icofont.min.css" rel="stylesheet">

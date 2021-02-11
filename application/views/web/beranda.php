@@ -106,13 +106,3 @@
 
   </main><!-- End #main -->
 
-  <script src="assets/page/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/page/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/page/vendor/php-email-form/validate.js"></script>
-  <script src="assets/page/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/page/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/page/vendor/aos/aos.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/page/js/main.js"></script>

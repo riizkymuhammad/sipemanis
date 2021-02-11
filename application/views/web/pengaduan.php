@@ -2,6 +2,8 @@
 <script src="assets/page/DataTables/datatables.min.js"> </script>
 
 
+
+
 <style>
 th{ color: #2863a6;}
 
@@ -82,8 +84,11 @@ th{ color: #2863a6;}
 
   </main>
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+
   <script>
+
+
 $(document).ready(function() {
     var table = $('#myTable').DataTable( {
         responsive: true
