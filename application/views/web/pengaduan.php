@@ -40,7 +40,7 @@ th{ color: #2863a6;}
 										</tr>
 									</thead>
 									<tbody>
-										<?php
+										<?php 
                     $no=1;
                     foreach ($query->result() as $key => $value): ?>
                       <tr>

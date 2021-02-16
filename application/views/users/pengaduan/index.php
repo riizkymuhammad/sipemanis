@@ -54,7 +54,9 @@ $link4 = strtolower($this->uri->segment(4));
                             <th>NIM / NIK</th>
                             <th>Kategori</th>
                             <th>Pengaduan</th>
-                            <?php if ($level=='superadmin'){ ?>
+                            <?php if ($level!='superadmin'){ ?>
+                            <th style="display: none;">Petugas</th>
+                            <?php }else{ ?>
                             <th>Petugas</th>
                             <?php } ?>
                             <th>Status</th>
@@ -74,9 +76,11 @@ $link4 = strtolower($this->uri->segment(4));
                     <td><?php echo $this->Mcrud->d_pelapor($baris->user,'user_login'); ?></td>
                     <td><?php echo $this->Mcrud->d_pelapor($baris->id_kategori,'kategori'); ?></td>
                     <td><?php echo $this->Mcrud->d_pelapor($baris->id_sub_kategori,'sub_kategori'); ?></td>	
-                    <?php if ($level=='superadmin'){ ?>
-                    <td><?php echo $this->Mcrud->d_pelapor($baris->petugas,'petugas'); ?></td>
-                    <?php } ?>
+                    <?php if ($level!='superadmin'){ ?>
+                    <td style="display: none;"><?php echo $this->Mcrud->d_pelapor($baris->petugas,'petugas'); ?></td>
+                    <?php }else{ ?>
+                      <td><?php echo $this->Mcrud->d_pelapor($baris->petugas,'petugas'); ?></td>
+                      <?php } ?>
                                         <td><?php if($baris->status == 'proses') {?>
                         <span class="badge badge-warning"><?php echo $this->Mcrud->cek_status($baris->status); ?></span>
                       <?php } elseif ($baris->status == 'konfirmasi'){ ?>
