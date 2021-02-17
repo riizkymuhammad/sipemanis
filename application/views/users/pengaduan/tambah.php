@@ -86,7 +86,7 @@ var IDKategori = pathArray[5];
                       <input name="isi_pengaduan" class="form-control" placeholder="Masukkan Password Hotspot Baru" required></input>
                     </div>
                   </div>
-                  <?php }elseif($link5=='8'){ ?>
+                  <?php }elseif($link4=='5'){ ?>
                   <div class="form-group">
                     <label class="col-lg-12">Alamat Website (URL Website)<b id='wajib_isi'>*</b></label>
                     <div class="col-lg-12">
