@@ -21,7 +21,7 @@ $link4 = strtolower($this->uri->segment(4));
       </div>
 <div class="section-body">
         <div class="row">
-          <div class="col-12 col-md-6 col-lg-12">  
+          <div class="col-12 col-md-6 col-lg-12 d-none d-lg-block">  
           <?php
             echo $this->session->flashdata('msg');
           ?>
@@ -84,6 +84,57 @@ $link4 = strtolower($this->uri->segment(4));
             </div>
           </div>
         </div>
+
+        <div class="col-12 col-md-6 col-lg-12 d-lg-none">  
+          <?php
+            echo $this->session->flashdata('msg');
+          ?>
+            <div class="card">        
+                              
+                <div class="card-header">
+                  <h4><?php echo $judul_web; ?></h4>
+                </div>
+                <div class="card-body">
+                 
+                    <b>Kategori Pelapor</b>
+                    <p><?php echo $this->Mcrud->d_pelapor($query->id_kategori,'kategori'); ?></p>
+
+                    <b>Sub Kategori Pelapor</b>
+                    <p><?php echo $this->Mcrud->d_pelapor($query->id_sub_kategori,'sub_kategori'); ?></p>
+
+                  
+
+                    <b>Hasil Laporan Petugas</b>
+                    <p><?php echo $query->pesan_petugas; ?></p>
+
+                    <b>File Pendukung</b>
+                    <p><a href="<?php echo $query->file_petugas; ?>" target="_blank"><?php echo $query->file_petugas; ?></a></p>
+
+                    <b>Status</b>
+                    <p><?php if($query->status == 'proses') {?>
+                        <span class="badge badge-warning"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'konfirmasi'){ ?>
+                        <span class="badge badge-info"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'selesai'){ ?>
+                        <span class="badge badge-success"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'konfirmasi'){ ?>
+                        <span class="badge badge-success"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                      <?php } elseif ($query->status == 'ditolak'){ ?>
+                        <span class="badge badge-danger"><?php echo $this->Mcrud->cek_status($query->status); ?></span>
+                        <?php } ?></p>
+
+
+                       
+                    
+                    </div>
+                <div class="card-footer text-right">
+                    <a href="pengaduan/v.html" class="btn btn-primary"><i><</i> Kembali</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 </section>
 </div>

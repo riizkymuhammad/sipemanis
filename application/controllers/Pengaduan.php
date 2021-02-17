@@ -108,7 +108,7 @@ class Pengaduan extends CI_Controller {
 			}
 			elseif ($aksi == 'l') {
 				$p = "laporan";
-				$data['judul_web'] 	  = "Detail Pengaduan";
+				$data['judul_web'] 	  = "Detail Konfirmasi Pengaduan";
 				$data['query'] = $this->db->get_where("tbl_pengaduan", array('id_pengaduan' => "$id"))->row();
 
 				if ($data['query']->id_pengaduan=='') {
@@ -234,12 +234,20 @@ class Pengaduan extends CI_Controller {
 						$status 	= htmlentities(strip_tags($this->input->post('status')));
 						$pesan_petugas = htmlentities(strip_tags($this->input->post('pesan_petugas')));
 						$file = htmlentities(strip_tags($this->input->post('file')));
+
+						if($status== 'ditolak'){
+							$tgl_selesai = $tgl;
+						}else{
+							$tgl_selesai = null;
+						}
 						$data = array(
 							'petugas'					=> $id_petugas,
 							'status'					=> $status,
 							'pesan_petugas' => $pesan_petugas,
 							'file_petugas' => $file,
-							'tgl_konfirmasi'  => $tgl
+							'tgl_konfirmasi'  => $tgl,
+							'tgl_selesai'  => $tgl_selesai
+							
 						);
 						$pesan = 'Berhasil dikirim ke petugas';
 						$this->Mcrud->kirim_notif('superadmin',$id_petugas,$id_pengaduan,'superadmin_ke_petugas');

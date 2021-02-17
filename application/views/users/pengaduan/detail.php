@@ -71,8 +71,10 @@ $level 	= $this->session->userdata('status');
                       <th valign="top">:</th>
                       <td><?php  $cek = $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_konfirmasi)),'full');
                       
-                      if($cek == null ){
+                      if($cek = $query->tgl_konfirmasi ){
                         echo $cek;
+                      
+                        
                       }
                         else{
                           echo "Belum di Konfirmasi";
@@ -83,13 +85,15 @@ $level 	= $this->session->userdata('status');
                      <tr>
                       <th valign="top">Waktu Penyelesaian</th>
                       <th valign="top">:</th>
-                      <td><?php $cek= $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_selesai)),'full');
-                      if($cek == null ){
-                        echo $cek;
+                      <td><?php $selesai= $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_selesai)),'full');
+                     if($selesai = $query->tgl_selesai ){
+                      echo $cek;
+                      
+                    }
+                      else{
+                        echo "Belum di Konfirmasi";
+                        
                       }
-                        else{
-                          echo "Belum di Selesaikan";
-                        }
                        ?></td>
                       
                     </tr>
@@ -185,29 +189,27 @@ $level 	= $this->session->userdata('status');
                     <p><?php echo $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_pengaduan)),'full'); ?></p>
 
                     <b>Waktu Konfirmasi</b>
-                    <p><?php  $cek = $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_konfirmasi)),'full');
-                      
-                      if($cek == null ){
+                    <p><?php $cek= $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_pengaduan)),'full');
+                      if($cek = $query->tgl_konfirmasi ){
                         echo $cek;
+                      
+                        
                       }
                         else{
                           echo "Belum di Konfirmasi";
                         }
-                      
-                       ?></p>
+                    
+                    ?></p>
 
                     <b>Waktu Penyelesaian</b>
-                    <p><?php $cek= $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_selesai)),'full');
-                      if($cek == null ){
-                        echo $cek;
+                    <p><?php $selesai= $this->Mcrud->tgl_id(date('d-m-Y H:i:s', strtotime($query->tgl_selesai)),'full');
+                      if($selesai = $query->tgl_selesai ){
+                        echo $$selesai;
                       }
                         else{
                           echo "Belum di Selesaikan";
                         }
                        ?></p>
-
-                    <b>Detail Permasalahan</b>
-                    <p><?php echo $query->ket_pengaduan; ?></p>
 
                     <b>Detail Permasalahan</b>
                     <p><?php echo $query->ket_pengaduan; ?></p>
