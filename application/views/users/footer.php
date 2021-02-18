@@ -17,6 +17,26 @@
   <script src="assets/assets/js/moment.min.js"></script>
 
   <script src="assets/assets/js/stisla.js"></script>
+  <script> 
+  var getnama = "<?php echo $this->session->userdata('name') ?>";
+   </script>
+  <script> 
+    window.intergramId = "-517658562";
+    window.intergramCustomizations = {
+        titleClosed: 'Chat Petugas',
+        titleOpen: 'Chat Petugas',
+        introMessage: 'Selamat datang di SIPEMANIS. sebelum mengirimkan pesan silahkan masukkan NIM/NIK/NIP dan Pesan anda',
+        autoResponse: 'Terima Kasih telah mengirim pesan ke Admin, tunggu sebentar. Admin akan membalas pesan anda segera',
+        autoNoResponse: 'Apakah ada yang ingin disampaikan lagi? ',
+        mainColor: "#2863a6", // Can be any css supported color 'red', 'rgb(255,87,34)', etc
+        alwaysUseFloatingButton: false, // Use the mobile floating button also on large screens,\
+        placeholderText: 'Masukkan Pesan Anda...'
+
+        
+    };
+    window.intergramOnOpen = {}; window.intergramOnOpen.visitorName=getnama;
+</script>
+<script id="intergram" type="text/javascript" src="assets/assets/js/widget.js"></script>
 
   <!-- JS Libraies -->
   <script src="assets/assets/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
